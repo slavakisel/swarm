@@ -1,0 +1,19 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
+  min_messages: warning
+  timeout: 5000
+  pool: 5
+
+development:
+  database: swarm_dev
+  <<: *defaults
+
+test:
+  database: swarm_test
+  <<: *defaults
+
+production: &deploy
+  <<: *defaults
+
+staging: *deploy
