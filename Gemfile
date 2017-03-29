@@ -9,6 +9,7 @@ gem 'rack-cors'
 gem 'sidekiq'
 gem 'kaminari'
 gem 'active_model_serializers'
+gem 'httparty'
 
 group :development, :test do
   gem 'pry-rails'
@@ -23,5 +24,6 @@ group :development do
 end
 
 group :test do
+  gem 'webmock'
   gem 'database_cleaner'
 end
