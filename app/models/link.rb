@@ -1,4 +1,6 @@
 class Link < ApplicationRecord
+  has_many :elements
+
   validates :url, presence: true, length: { maximum: 2083 }
 
   paginates_per 25
