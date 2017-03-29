@@ -32,6 +32,7 @@ describe LinksController, type: :controller do
   describe '#GET index' do
     let!(:processed) { create(:link, last_processed_at: DateTime.now) }
     let!(:unprocessed) { create(:link) }
+    let!(:elements) { create_list(:element, 2, link: processed) }
 
     let(:expected_data) do
       [{
@@ -39,19 +40,54 @@ describe LinksController, type: :controller do
         "type" => "links",
         "attributes" => {
           "url" => "http://example.com"
+        },
+        "relationships" => {
+          "elements" => {
+            "data" => [
+              {
+                "id" => elements.first.id.to_s,
+                "type" => "elements"
+              },
+              {
+                "id" => elements.second.id.to_s,
+                "type" => "elements"
+              }
+            ]
+          }
         }
       }]
+    end
+    let(:expected_included) do
+      [
+        {
+          "id" => elements.first.id.to_s,
+          "type" => "elements",
+          "attributes" => {
+            "tag" => "h1",
+            "content" => "Hello, World!"
+          }
+        },
+        {
+          "id" => elements.second.id.to_s,
+          "type" => "elements",
+          "attributes" => {
+            "tag" => "h1",
+            "content" => "Hello, World!"
+          }
+        }
+      ]
     end
 
     def do_request
       get :index
     end
 
-    it 'it renders processed links' do
+    it 'it renders processed links with elements' do
       do_request
 
       expect(response).to have_http_status(200)
       expect(body['data']).to eq expected_data
+      expect(body['included']).to eq expected_included
     end
   end
 end
