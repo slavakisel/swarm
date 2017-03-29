@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170329193250) do
   create_table "elements", force: :cascade do |t|
     t.integer  "link_id"
     t.string   "tag"
-    t.text     "text"
+    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["link_id"], name: "index_elements_on_link_id", using: :btree

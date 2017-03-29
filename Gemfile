@@ -10,6 +10,7 @@ gem 'sidekiq'
 gem 'kaminari'
 gem 'active_model_serializers'
 gem 'httparty'
+gem 'activerecord-import'
 
 group :development, :test do
   gem 'pry-rails'

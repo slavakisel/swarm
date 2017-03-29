@@ -3,7 +3,7 @@ class CreateElements < ActiveRecord::Migration[5.0]
     create_table :elements do |t|
       t.references :link, foreign_key: true
       t.string :tag
-      t.text :text
+      t.text :content
 
       t.timestamps
     end
