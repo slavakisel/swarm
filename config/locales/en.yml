@@ -23,4 +23,3 @@ en:
   links:
     create:
       success: Url has been queued for indexing.
-      error: Url cannot be blank.
