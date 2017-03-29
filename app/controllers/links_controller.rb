@@ -1,5 +1,8 @@
 class LinksController < ApplicationController
   def index
+    links = Link.processed.page(params[:page]).per(params[:per_page])
+
+    render json: links
   end
 
   def create

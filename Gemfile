@@ -8,6 +8,7 @@ gem 'puma', '~> 3.0'
 gem 'rack-cors'
 gem 'sidekiq'
 gem 'kaminari'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'pry-rails'
