@@ -11,6 +11,7 @@ gem 'kaminari'
 gem 'active_model_serializers'
 gem 'httparty'
 gem 'activerecord-import'
+gem 'foreman'
 
 group :development, :test do
   gem 'pry-rails'
