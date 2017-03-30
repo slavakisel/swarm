@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+set -e
+
+curl -H "Content-Type: application/json" -X POST -d '{"link":{"url":"$1"}}' https://swarm-staging.herokuapp.com/links
